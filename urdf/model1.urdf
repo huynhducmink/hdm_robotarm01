@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<robot name="robotarm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find urdf1)/urdf/links_joints.xacro"/>
+    <xacro:include filename="$(find urdf1)/urdf/transmission.xacro"/>
+
+    <xacro:xacro_cylinder    
+        name="stationary_base"
+        length="0.1"
+        radius="0.5"
+        mass="10.0"
+        origin_rpy="0 0 0"
+        origin_xyz="0 0 0"
+    />
+
+    <xacro:xacro_cylinder    
+        name="spin_base"
+        length="0.1"
+        radius="0.4"
+        mass="2.0"
+        origin_rpy="0 0 0"
+        origin_xyz="0 0 0.05"
+    />
+    <xacro:xacro_joint
+        name="stationary_base_spin_base_joint"
+        type="revolute"
+        axis="0 0 1"
+        lower="-3.14"
+        upper="3.14"
+        parent="stationary_base"
+        child="spin_base"
+        origin_xyz="0 0 0.05"
+    />
+    <xacro:xacro_trans_position
+        name="stationary_base_spin_base_trans"
+        actuator="stationary_base_spin_base_actuator"
+        joint="stationary_base_spin_base_joint"
+    />
+
+    <xacro:xacro_box
+        name="arm1"
+        w="1"
+        h="0.1"
+        d="0.1"
+        origin_rpy="0 1.57 0"
+        origin_xyz="0 0 0.5"
+        mass="0.5"
+    />
+    <xacro:xacro_joint
+        name="spin_base_arm1_joint"
+        type="revolute"
+        axis="0 1 0"
+        lower="0.0"
+        upper="3.14"
+        parent="spin_base"
+        child="arm1"
+        origin_xyz="0 0 0.05"
+    />
+    <xacro:xacro_trans_position
+        name="spin_base_arm1_trans"
+        actuator="spin_base_arm1_actuator"
+        joint="spin_base_arm1_joint"
+    />
+
+    <xacro:xacro_box
+        name="arm2"
+        w="1"
+        h="0.1"
+        d="0.1"
+        origin_rpy="0 1.57 0"
+        origin_xyz="0 0 0.5"
+        mass="0.5"
+    />
+    <xacro:xacro_joint
+        name="arm1_arm2_joint"
+        type="revolute"
+        axis="0 1 0"
+        lower="0.0"
+        upper="3.14"
+        parent="arm1"
+        child="arm2"
+        origin_xyz="0 0 1"
+    />
+    <xacro:xacro_trans_position
+        name="arm1_arm2_trans"
+        actuator="arm1_arm2_actuator"
+        joint="arm1_arm2_joint"
+    />
+
+    <xacro:xacro_box
+        name="arm3"
+        w="0.5"
+        h="0.1"
+        d="0.1"
+        origin_rpy="0 1.57 0"
+        origin_xyz="0 0 0.25"
+        mass="0.5"
+    />
+    <xacro:xacro_joint
+        name="arm2_arm3_joint"
+        type="revolute"
+        axis="0 1 0"
+        lower="0.0"
+        upper="3.14"
+        parent="arm2"
+        child="arm3"
+        origin_xyz="0 0 1"
+    />
+    <xacro:xacro_trans_position
+        name="arm2_arm3_trans"
+        actuator="arm2_arm3_actuator"
+        joint="arm2_arm3_joint"
+    />
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+
+</robot>

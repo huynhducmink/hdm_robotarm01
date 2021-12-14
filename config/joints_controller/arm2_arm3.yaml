@@ -1,0 +1,2 @@
+type: "position_controllers/JointPositionController"
+joint: arm2_arm3_joint
