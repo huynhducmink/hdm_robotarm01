@@ -1,7 +1,7 @@
 #include "ros/ros.h"
 #include "std_msgs/Float64.h"
 #include <iostream>
-
+#include <string>
 #include <sstream>
 
 int main(int argc, char **argv)
@@ -57,21 +57,23 @@ int main(int argc, char **argv)
      * This is a message object. You stuff it with data, and then publish it.
      */
     std_msgs::Float64 joint[4];
-
-    std::cin >> joint[0].data >> joint[1].data >> joint[2].data >> joint[3].data;
-
-    ROS_INFO("%f", joint[0].data,joint[1].data,joint[2].data,joint[3].data);
-
-    /**
-     * The publish() function is how you send messages. The parameter
-     * is the message object. The type of this object must agree with the type
-     * given as a template parameter to the advertise<>() call, as was done
-     * in the constructor above.
-     */
-    model1_controller_pub_joint0.publish(joint[0]);
-    model1_controller_pub_joint1.publish(joint[1]);
-    model1_controller_pub_joint2.publish(joint[2]);
-    model1_controller_pub_joint3.publish(joint[3]);
+    std::string command;
+    std::cout << "q to quit, m followed by each axis rotation (4) to control the robot\n" << std::endl;
+    std::cin >> command;
+    if (command=="q"){
+      return 0;
+    }
+    else if (command=="m"){
+      std::cin >> joint[0].data >> joint[1].data >> joint[2].data >> joint[3].data;
+      ROS_INFO("%f %f %f %f", joint[0].data,joint[1].data,joint[2].data,joint[3].data);
+      model1_controller_pub_joint0.publish(joint[0]);
+      model1_controller_pub_joint1.publish(joint[1]);
+      model1_controller_pub_joint2.publish(joint[2]);
+      model1_controller_pub_joint3.publish(joint[3]);
+    }
+    else{
+      std::cout << "Wrong command!\n" << std::endl;
+    }
     ros::spinOnce();
 
     loop_rate.sleep();

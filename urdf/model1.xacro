@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <robot name="robotarm" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find urdf1)/urdf/links_joints.xacro"/>
+    <xacro:include filename="$(find urdf1)/urdf/link_joint.xacro"/>
     <xacro:include filename="$(find urdf1)/urdf/transmission.xacro"/>
+    <xacro:include filename="$(find urdf1)/urdf/gazebo.xacro"/>
 
     <xacro:xacro_cylinder    
         name="stationary_base"
@@ -50,7 +51,7 @@
         name="spin_base_arm1_joint"
         type="revolute"
         axis="0 1 0"
-        lower="0.0"
+        lower="-3.14"
         upper="3.14"
         parent="spin_base"
         child="arm1"
@@ -75,7 +76,7 @@
         name="arm1_arm2_joint"
         type="revolute"
         axis="0 1 0"
-        lower="0.0"
+        lower="-3.14"
         upper="3.14"
         parent="arm1"
         child="arm2"
@@ -100,7 +101,7 @@
         name="arm2_arm3_joint"
         type="revolute"
         axis="0 1 0"
-        lower="0.0"
+        lower="-3.14"
         upper="3.14"
         parent="arm2"
         child="arm3"
@@ -111,11 +112,5 @@
         actuator="arm2_arm3_actuator"
         joint="arm2_arm3_joint"
     />
-
-    <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/</robotNamespace>
-        </plugin>
-    </gazebo>
 
 </robot>
