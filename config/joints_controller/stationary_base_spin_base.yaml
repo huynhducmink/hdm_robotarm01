@@ -1,2 +1,0 @@
-type: "position_controllers/JointPositionController"
-joint: stationary_base_spin_base_joint
