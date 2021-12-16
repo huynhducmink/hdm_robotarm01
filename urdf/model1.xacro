@@ -113,4 +113,52 @@
         joint="arm2_arm3_joint"
     />
 
+    <xacro:xacro_mesh
+        name="gripper1"
+        file="package://urdf1/mesh/gripper1.dae"
+        origin_rpy="1.57 0 1.57"
+        origin_xyz="-0.15 0 0"
+        mass="0.1"
+        scale="3"
+    />
+    <xacro:xacro_joint
+        name="arm3_gripper1_joint"
+        type="revolute"
+        axis="-1 0 0"
+        lower="-3.14"
+        upper="0"
+        parent="arm3"
+        child="gripper1"
+        origin_xyz="0 0 0.5"
+    />
+    <xacro:xacro_trans_position
+        name="arm3_gripper1_trans"
+        actuator="arm3_gripper1_actuator"
+        joint="arm3_gripper1_joint"
+    />
+
+    <xacro:xacro_mesh
+        name="gripper2"
+        file="package://urdf1/mesh/gripper2.dae"
+        origin_rpy="1.57 0 1.57"
+        origin_xyz="-0.15 0 0"
+        mass="0.1"
+        scale="3"
+    />
+    <xacro:xacro_joint
+        name="arm3_gripper2_joint"
+        type="revolute"
+        axis="1 0 0"
+        lower="-3.14"
+        upper="0"
+        parent="arm3"
+        child="gripper2"
+        origin_xyz="0 0 0.5"
+    />
+    <xacro:xacro_trans_position
+        name="arm3_gripper2_trans"
+        actuator="arm3_gripper2_actuator"
+        joint="arm3_gripper2_joint"
+    />
+
 </robot>

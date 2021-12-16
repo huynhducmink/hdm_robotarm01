@@ -48,6 +48,8 @@ int main(int argc, char **argv)
   ros::Publisher model1_controller_pub_joint1 = n.advertise<std_msgs::Float64>("spin_base_arm1_joint_controller/command", 1000);
   ros::Publisher model1_controller_pub_joint2 = n.advertise<std_msgs::Float64>("arm1_arm2_joint_controller/command", 1000);
   ros::Publisher model1_controller_pub_joint3 = n.advertise<std_msgs::Float64>("arm2_arm3_joint_controller/command", 1000);
+  ros::Publisher model1_controller_pub_gripper1 = n.advertise<std_msgs::Float64>("arm3_gripper1_joint_controller/command", 1000);
+  ros::Publisher model1_controller_pub_gripper2 = n.advertise<std_msgs::Float64>("arm3_gripper2_joint_controller/command", 1000);
   ros::Rate loop_rate(10);
 
   
@@ -57,8 +59,9 @@ int main(int argc, char **argv)
      * This is a message object. You stuff it with data, and then publish it.
      */
     std_msgs::Float64 joint[4];
+    std_msgs::Float64 grip[2];
     std::string command;
-    std::cout << "q to quit, m followed by each axis rotation (4) to control the robot\n" << std::endl;
+    std::cout << "q to quit, m followed by each axis rotation (4) to control the robot, g and ug to control the gripper\n" << std::endl;
     std::cin >> command;
     if (command=="q"){
       return 0;
@@ -70,6 +73,16 @@ int main(int argc, char **argv)
       model1_controller_pub_joint1.publish(joint[1]);
       model1_controller_pub_joint2.publish(joint[2]);
       model1_controller_pub_joint3.publish(joint[3]);
+    }
+    else if (command=="g"){
+      grip[0].data=0;grip[1].data=0;
+      model1_controller_pub_gripper1.publish(grip[0]);
+      model1_controller_pub_gripper2.publish(grip[1]);
+    }
+    else if (command=="ug"){
+      grip[0].data=-1.5;grip[1].data=-1.5;
+      model1_controller_pub_gripper1.publish(grip[0]);
+      model1_controller_pub_gripper2.publish(grip[1]);
     }
     else{
       std::cout << "Wrong command!\n" << std::endl;

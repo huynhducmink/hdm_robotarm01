@@ -42,6 +42,27 @@
             </inertial>
         </link>
     </xacro:macro>
+        
+    <xacro:macro name="xacro_mesh" params="name file origin_rpy origin_xyz mass scale">
+        <link name="${name}">
+            <visual>
+                <geometry>
+                    <mesh filename="${file}" scale="${scale} ${scale} ${scale}"/>
+                </geometry>
+                <origin rpy="${origin_rpy}" xyz="${origin_xyz}"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="${file}" scale="${scale} ${scale} ${scale}"/>
+                </geometry>
+                <origin rpy="${origin_rpy}" xyz="${origin_xyz}"/>
+            </collision>
+            <inertial>
+                <mass value="${mass}"/>
+                <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+            </inertial>
+        </link>
+    </xacro:macro>
 
     <xacro:macro name="xacro_joint" params="name type axis lower upper parent child origin_xyz">
         <joint name="${name}" type="${type}">
