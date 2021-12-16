@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <launch>
-  <include file = "$(find urdf1)/launch/empty_world.launch" />
+  <arg name="world_name" default="myworld.world" />
+  <include file = "$(find urdf1)/launch/xml/empty_world.launch">
+    <arg name="world_name" value="$(find urdf1)/world/$(arg world_name)"/>
+  </include>
 </launch>
