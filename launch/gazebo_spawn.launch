@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<launch>  
-    <!-- Robot model -->
-    <param name="robot_description" command="$(find xacro)/xacro '$(find urdf1)/urdf/model1.xacro'" />
-    
-    <!-- Spawn the robot model -->
-    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen"
-          args="-z 1.0 -unpause -urdf -model robot -param robot_description" />
-  
-    <!-- Load controllers -->
-    <rosparam command="load" file="$(find urdf1)/config/joints.yaml" />
-    
-    <!-- Controllers -->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner"
-        respawn="false" output="screen"
-        args="controller
-            stationary_base_spin_base_joint_controller
-            spin_base_arm1_joint_controller
-            arm1_arm2_joint_controller
-            arm2_arm3_joint_controller
-            --timeout 60">
-    </node>
+<launch> 
+    <include file="$(find urdf1)/launch/xml/spawner.xml" />
+    <include file="$(find urdf1)/launch/xml/controller.xml" />
+    <include file="$(find urdf1)/launch/xml/robot_state_publisher.xml" />
 </launch>

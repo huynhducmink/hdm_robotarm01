@@ -1,40 +1,6 @@
 <launch>
-
-  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
-  <arg name="paused" default="false"/>
-  <arg name="use_sim_time" default="true"/>
-  <arg name="gui" default="true"/>
-  <arg name="headless" default="false"/>
-  <arg name="debug" default="false"/>
-  <arg name="model" default="$(find urdf1)/urdf/model1.xacro"/>
-
-  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
-  <include file="$(find urdf1)/launch/world/empty_world.launch">
-    <arg name="debug" value="$(arg debug)" />
-    <arg name="gui" value="$(arg gui)" />
-    <arg name="paused" value="$(arg paused)"/>
-    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
-    <arg name="headless" value="$(arg headless)"/>
-  </include>
-
-  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
-
-  <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-    args="-z 1.0 -unpause -urdf -model robot -param robot_description" respawn="false" output="screen" />
-
-  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
-    <param name="publish_frequency" type="double" value="30.0" />
-  </node>
-
-  <rosparam command="load"
-    file="$(find urdf1)/config/joints.yaml" />
-    
-  <node name="controller_spawner" pkg="controller_manager" type="spawner"
-      args="controller
-        stationary_base_spin_base_joint_controller
-        spin_base_arm1_joint_controller
-        arm1_arm2_joint_controller
-        arm2_arm3_joint_controller
-        --timeout 60"/>
+  <include file="$(find urdf1)/launch/empty_world.launch" />
+  <include file="$(find urdf1)/launch/xml/spawner.xml" />
+  <include file="$(find urdf1)/launch/xml/robot_state_publisher.xml" />
+  <include file="$(find urdf1)/launch/xml/controller.xml" />
 </launch>

@@ -1,0 +1,12 @@
+<launch>
+    <rosparam command="load" file="$(find urdf1)/config/joints.yaml" />
+    
+    <node name="controller_spawner" pkg="controller_manager" type="spawner"
+        args="controller
+            stationary_base_spin_base_joint_controller
+            spin_base_arm1_joint_controller
+            arm1_arm2_joint_controller
+            arm2_arm3_joint_controller
+            --timeout 60"
+    />
+</launch>

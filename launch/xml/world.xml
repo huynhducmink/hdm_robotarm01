@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+  <include file = "$(find urdf1)/launch/empty_world.launch" />
+</launch>
