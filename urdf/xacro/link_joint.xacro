@@ -14,6 +14,12 @@
                     <cylinder length="${length}" radius="${radius}"/>
                 </geometry>
                 <surface>
+                    <friction>
+                        <ode>
+                            <mu>0.1</mu>
+                            <mu2>0.1</mu2>
+                        </ode>
+                    </friction>
                     <torsional>
                         <coefficient>2.0</coefficient>
                         <surface_radius>0.5</surface_radius>
@@ -41,6 +47,14 @@
                 <geometry>
                     <box size="${w} ${h} ${d}"/>
                 </geometry>
+                <surface>
+                    <friction>
+                        <ode>
+                            <mu>0.1</mu>
+                            <mu2>0.1</mu2>
+                        </ode>
+                    </friction>
+                </surface>
                 <origin rpy="${origin_rpy}" xyz="${origin_xyz}"/>
             </collision>
             <inertial>
@@ -62,6 +76,14 @@
                 <geometry>
                     <mesh filename="${file}" scale="${scale} ${scale} ${scale}"/>
                 </geometry>
+                <surface>
+                    <friction>
+                        <ode>
+                            <mu>0.1</mu>
+                            <mu2>0.1</mu2>
+                        </ode>
+                    </friction>
+                </surface>
                 <origin rpy="${origin_rpy}" xyz="${origin_xyz}"/>
             </collision>
             <inertial>
