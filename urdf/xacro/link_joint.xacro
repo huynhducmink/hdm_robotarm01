@@ -13,6 +13,13 @@
                 <geometry>
                     <cylinder length="${length}" radius="${radius}"/>
                 </geometry>
+                <surface>
+                    <torsional>
+                        <coefficient>2.0</coefficient>
+                        <surface_radius>0.5</surface_radius>
+                        <use_patch_radius>false</use_patch_radius>    
+                    </torsional>
+                </surface>
                 <origin rpy="${origin_rpy}" xyz="${origin_xyz}"/>
             </collision>
             <inertial>

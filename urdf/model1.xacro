@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <robot name="robotarm" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find urdf1)/urdf/link_joint.xacro"/>
-    <xacro:include filename="$(find urdf1)/urdf/transmission.xacro"/>
-    <xacro:include filename="$(find urdf1)/urdf/gazebo.xacro"/>
+    <xacro:include filename="$(find urdf1)/urdf/xacro/link_joint.xacro"/>
+    <xacro:include filename="$(find urdf1)/urdf/xacro/transmission.xacro"/>
+    <xacro:include filename="$(find urdf1)/urdf/xacro/gazebo.xacro"/>
 
+    <!-- stationary_base -->
     <xacro:xacro_cylinder    
         name="stationary_base"
         length="0.1"
@@ -14,6 +15,7 @@
         origin_xyz="0 0 0"
     />
 
+    <!-- spin_base -->
     <xacro:xacro_cylinder    
         name="spin_base"
         length="0.1"
@@ -38,6 +40,7 @@
         joint="stationary_base_spin_base_joint"
     />
 
+    <!-- arm1 -->
     <xacro:xacro_box
         name="arm1"
         w="1"
@@ -63,6 +66,7 @@
         joint="spin_base_arm1_joint"
     />
 
+    <!-- arm2 -->
     <xacro:xacro_box
         name="arm2"
         w="1"
@@ -88,6 +92,7 @@
         joint="arm1_arm2_joint"
     />
 
+    <!-- arm3 -->
     <xacro:xacro_box
         name="arm3"
         w="0.5"
@@ -113,6 +118,7 @@
         joint="arm2_arm3_joint"
     />
 
+    <!-- gripper1 -->
     <xacro:xacro_mesh
         name="gripper1"
         file="package://urdf1/mesh/gripper1.dae"
@@ -137,6 +143,7 @@
         joint="arm3_gripper1_joint"
     />
 
+    <!-- gripper2 -->
     <xacro:xacro_mesh
         name="gripper2"
         file="package://urdf1/mesh/gripper2.dae"

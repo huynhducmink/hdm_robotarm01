@@ -75,7 +75,7 @@ int main(int argc, char **argv)
       model1_controller_pub_joint3.publish(joint[3]);
     }
     else if (command=="g"){
-      grip[0].data=0;grip[1].data=0;
+      grip[0].data=-0.2;grip[1].data=-0.2;
       model1_controller_pub_gripper1.publish(grip[0]);
       model1_controller_pub_gripper2.publish(grip[1]);
     }
