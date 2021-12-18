@@ -93,10 +93,10 @@
         </link>
     </xacro:macro>
 
-    <xacro:macro name="xacro_joint" params="name type axis lower upper parent child origin_xyz">
+    <xacro:macro name="xacro_joint" params="name type axis effort lower upper parent child origin_xyz">
         <joint name="${name}" type="${type}">
             <axis xyz="${axis}"/>
-            <limit effort="1000.0" lower="${lower}" upper="${upper}" velocity="0.5"/>
+            <limit effort="${effort}" lower="${lower}" upper="${upper}" velocity="0.5"/>
             <parent link="${parent}"/>
             <child link="${child}"/>
             <origin xyz="${origin_xyz}"/>

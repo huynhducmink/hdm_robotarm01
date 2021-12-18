@@ -7,13 +7,16 @@
 		    	transmission_interface/SimpleTransmission
 		    </type>
 		    <actuator name="${actuator}">
+                <hardwareInterface>
+                    hardware_interface/EffortJointInterface
+                </hardwareInterface>
 		    	<mechanicalReduction>
 		    		1
 		    	</mechanicalReduction>
             </actuator>
             <joint name="${joint}">
                 <hardwareInterface>
-                    hardware_interface/PositionJointInterface
+                    hardware_interface/EffortJointInterface
                 </hardwareInterface>
             </joint>
 	        </transmission>
