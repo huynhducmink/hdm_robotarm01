@@ -5,24 +5,24 @@ controller:
 stationary_base_spin_base_joint_controller:
   type: "effort_controllers/JointPositionController"
   joint: stationary_base_spin_base_joint
-  pid: {p: 50.0, i: 0.1, d: 10.0}
+  pid: {p: 200.0, i: 1.0, d: 10.0}
 spin_base_arm1_joint_controller:
   type: "effort_controllers/JointPositionController"
   joint: spin_base_arm1_joint
-  pid: {p: 50.0, i: 0.1, d: 10.0}
+  pid: {p: 200.0, i: 1.0, d: 10.0}
 arm1_arm2_joint_controller:
   type: "effort_controllers/JointPositionController"
   joint: arm1_arm2_joint
-  pid: {p: 50.0, i: 0.1, d: 10.0}
+  pid: {p: 100.0, i: 1.0, d: 10.0}
 arm2_arm3_joint_controller:
   type: "effort_controllers/JointPositionController"
   joint: arm2_arm3_joint
-  pid: {p: 50.0, i: 0.1, d: 10.0}
+  pid: {p: 100.0, i: 1.0, d: 10.0}
 arm3_gripper1_joint_controller:
   type: "effort_controllers/JointPositionController"
   joint: arm3_gripper1_joint
-  pid: {p: 50.0, i: 0.1, d: 10.0}
+  pid: {p: 50.0, i: 1.0, d: 10.0}
 arm3_gripper2_joint_controller:
   type: "effort_controllers/JointPositionController"
   joint: arm3_gripper2_joint
-  pid: {p: 50.0, i: 0.1, d: 10.0}
+  pid: {p: 50.0, i: 1.0, d: 2.0}

@@ -28,12 +28,11 @@
         name="stationary_base_spin_base_joint"
         type="revolute"
         axis="0 0 1"
-        effort="1000"
         lower="-3.14"
         upper="3.14"
         parent="stationary_base"
         child="spin_base"
-        origin_xyz="0 0 0.05"
+        origin_xyz="0 0 0.06"
     />
     <xacro:xacro_trans_position
         name="stationary_base_spin_base_trans"
@@ -55,12 +54,11 @@
         name="spin_base_arm1_joint"
         type="revolute"
         axis="0 1 0"
-        effort="1000"
-        lower="-3.14"
-        upper="3.14"
+        lower="-1.57"
+        upper="1.57"
         parent="spin_base"
         child="arm1"
-        origin_xyz="0 0 0.05"
+        origin_xyz="0 0 0.2"
     />
     <xacro:xacro_trans_position
         name="spin_base_arm1_trans"
@@ -75,19 +73,18 @@
         h="0.1"
         d="0.1"
         origin_rpy="0 1.57 0"
-        origin_xyz="0 0 0.5"
+        origin_xyz="0 0.05 0.5"
         mass="0.5"
     />
     <xacro:xacro_joint
         name="arm1_arm2_joint"
         type="revolute"
         axis="0 1 0"
-        effort="1000"
         lower="-3.14"
         upper="3.14"
         parent="arm1"
         child="arm2"
-        origin_xyz="0 0 1"
+        origin_xyz="0 0.05 1"
     />
     <xacro:xacro_trans_position
         name="arm1_arm2_trans"
@@ -102,14 +99,13 @@
         h="0.1"
         d="0.1"
         origin_rpy="0 1.57 0"
-        origin_xyz="0 0 0.25"
+        origin_xyz="0 -0.05 0.25"
         mass="0.5"
     />
     <xacro:xacro_joint
         name="arm2_arm3_joint"
         type="revolute"
         axis="0 1 0"
-        effort="1000"
         lower="-3.14"
         upper="3.14"
         parent="arm2"
@@ -135,12 +131,11 @@
         name="arm3_gripper1_joint"
         type="revolute"
         axis="-1 0 0"
-        effort="10"
         lower="-3.14"
         upper="0"
         parent="arm3"
         child="gripper1"
-        origin_xyz="0 0 0.5"
+        origin_xyz="0 -0.05 0.5"
     />
     <xacro:xacro_trans_position
         name="arm3_gripper1_trans"
@@ -161,12 +156,11 @@
         name="arm3_gripper2_joint"
         type="revolute"
         axis="1 0 0"
-        effort="10"
         lower="-3.14"
         upper="0"
         parent="arm3"
         child="gripper2"
-        origin_xyz="0 0 0.5"
+        origin_xyz="0 -0.05 0.5"
     />
     <xacro:xacro_trans_position
         name="arm3_gripper2_trans"
