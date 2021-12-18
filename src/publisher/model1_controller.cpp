@@ -80,7 +80,7 @@ int main(int argc, char **argv)
       model1_controller_pub_gripper2.publish(grip[1]);
     }
     else if (command=="ug"){
-      grip[0].data=-1.5;grip[1].data=-1.5;
+      grip[0].data=-1.1;grip[1].data=-1.1;
       model1_controller_pub_gripper1.publish(grip[0]);
       model1_controller_pub_gripper2.publish(grip[1]);
     }

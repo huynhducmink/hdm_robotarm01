@@ -2,7 +2,7 @@
 
 <launch>
   <arg name="world_name" default="myworld.world" />
-  <include file = "$(find urdf1)/launch/xml/empty_world.launch">
-    <arg name="world_name" value="$(find urdf1)/world/$(arg world_name)"/>
+  <include file = "$(find robotarm)/launch/xml/empty_world.launch">
+    <arg name="world_name" value="$(find robotarm)/world/$(arg world_name)"/>
   </include>
 </launch>

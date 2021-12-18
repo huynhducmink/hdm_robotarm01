@@ -1,9 +1,16 @@
 <?xml version="1.0"?>
 <robot name="robotarm" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find urdf1)/urdf/xacro/link_joint.xacro"/>
-    <xacro:include filename="$(find urdf1)/urdf/xacro/transmission.xacro"/>
-    <xacro:include filename="$(find urdf1)/urdf/xacro/gazebo.xacro"/>
+    <xacro:include filename="$(find robotarm)/urdf/xacro/link_joint.xacro"/>
+    <xacro:include filename="$(find robotarm)/urdf/xacro/transmission.xacro"/>
+    <xacro:include filename="$(find robotarm)/urdf/xacro/gazebo.xacro"/>
+
+    <!-- fix model to world -->
+    <link name="world"/>
+    <joint name="fixed" type="fixed">
+        <parent link="world"/>
+        <child link="stationary_base"/>
+    </joint>
 
     <!-- stationary_base -->
     <xacro:xacro_cylinder    
@@ -121,7 +128,7 @@
     <!-- gripper1 -->
     <xacro:xacro_mesh
         name="gripper1"
-        file="package://urdf1/mesh/gripper1.dae"
+        file="package://robotarm/mesh/gripper1.dae"
         origin_rpy="1.57 0 1.57"
         origin_xyz="-0.15 0 0"
         mass="0.1"
@@ -146,7 +153,7 @@
     <!-- gripper2 -->
     <xacro:xacro_mesh
         name="gripper2"
-        file="package://urdf1/mesh/gripper2.dae"
+        file="package://robotarm/mesh/gripper2.dae"
         origin_rpy="1.57 0 1.57"
         origin_xyz="-0.15 0 0"
         mass="0.1"
