@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <launch>
 
-  <arg name="model" default="$(find robotarm)/urdf/model1.xacro"/>
+  <arg name="model" default="$(find hdm_robotarm01)/urdf/model1.xacro"/>
   <arg name="gui" default="true" />
-  <arg name="rvizconfig" default="$(find robotarm)/rviz/urdf.rviz" />
+  <arg name="rvizconfig" default="$(find hdm_robotarm01)/rviz/urdf.rviz" />
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
 

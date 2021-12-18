@@ -2,7 +2,7 @@
 
 <launch>
   <arg name="world_name" default="myworld.world" />
-  <include file = "$(find robotarm)/launch/xml/empty_world.launch">
-    <arg name="world_name" value="$(find robotarm)/world/$(arg world_name)"/>
+  <include file = "$(find hdm_robotarm01)/launch/xml/empty_world.launch">
+    <arg name="world_name" value="$(find hdm_robotarm01)/world/$(arg world_name)"/>
   </include>
 </launch>

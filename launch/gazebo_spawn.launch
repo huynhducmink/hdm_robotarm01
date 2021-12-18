@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch> 
-    <include file="$(find robotarm)/launch/xml/spawner.xml" />
-    <include file="$(find robotarm)/launch/xml/controller.xml" />
-    <include file="$(find robotarm)/launch/xml/robot_state_publisher.xml" />
+    <include file="$(find hdm_robotarm01)/launch/xml/spawner.xml" />
+    <include file="$(find hdm_robotarm01)/launch/xml/controller.xml" />
+    <include file="$(find hdm_robotarm01)/launch/xml/robot_state_publisher.xml" />
 </launch>

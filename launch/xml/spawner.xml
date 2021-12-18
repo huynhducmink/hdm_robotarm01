@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 <!-- Robot model -->
-    <param name="robot_description" command="$(find xacro)/xacro '$(find robotarm)/urdf/model1.xacro'" />
+    <param name="robot_description" command="$(find xacro)/xacro '$(find hdm_robotarm01)/urdf/model1.xacro'" />
     
     <!-- Spawn the robot model -->
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen"

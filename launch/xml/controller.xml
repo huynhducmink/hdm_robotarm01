@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-    <rosparam command="load" file="$(find robotarm)/config/joints.yaml" />
+    <rosparam command="load" file="$(find hdm_robotarm01)/config/joints.yaml" />
     
     <node name="controller_spawner" pkg="controller_manager" type="spawner"
         args="controller
