@@ -1,2 +1,2 @@
 # ros_robotarm01
-Robot arm 01 in ROS
+Save this package under the name "robotarm"
