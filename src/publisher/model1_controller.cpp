@@ -63,10 +63,12 @@ int main(int argc, char **argv)
     std::string command;
     std::cout << "q to quit, m followed by each axis rotation (4) to control the robot, g and ug to control the gripper\n" << std::endl;
     std::cin >> command;
-    if (command=="q"){
+    if (command=="quit"){
+      fflush(stdin);
       return 0;
     }
-    else if (command=="m"){
+    else if (command=="move"){
+      fflush(stdin);
       std::cin >> joint[0].data >> joint[1].data >> joint[2].data >> joint[3].data;
       ROS_INFO("%f %f %f %f", joint[0].data,joint[1].data,joint[2].data,joint[3].data);
       model1_controller_pub_joint0.publish(joint[0]);
@@ -74,17 +76,20 @@ int main(int argc, char **argv)
       model1_controller_pub_joint2.publish(joint[2]);
       model1_controller_pub_joint3.publish(joint[3]);
     }
-    else if (command=="g"){
+    else if (command=="grab"){
+      fflush(stdin);
       grip[0].data=-0.2;grip[1].data=-0.2;
       model1_controller_pub_gripper1.publish(grip[0]);
       model1_controller_pub_gripper2.publish(grip[1]);
     }
-    else if (command=="ug"){
+    else if (command=="ungrab"){
+      fflush(stdin);
       grip[0].data=-1.1;grip[1].data=-1.1;
       model1_controller_pub_gripper1.publish(grip[0]);
       model1_controller_pub_gripper2.publish(grip[1]);
     }
     else{
+      fflush(stdin);
       std::cout << "Wrong command!\n" << std::endl;
     }
     ros::spinOnce();

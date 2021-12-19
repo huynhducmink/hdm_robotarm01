@@ -1,6 +1,6 @@
 controller:
   type: "joint_state_controller/JointStateController"
-  publish_rate: 50
+  publish_rate: 1
 
 stationary_base_spin_base_joint_controller:
   type: "effort_controllers/JointPositionController"
@@ -9,15 +9,15 @@ stationary_base_spin_base_joint_controller:
 spin_base_arm1_joint_controller:
   type: "effort_controllers/JointPositionController"
   joint: spin_base_arm1_joint
-  pid: {p: 500.0, i: 10.0, d: 10.0}
+  pid: {p: 500.0, i: 50.0, d: 50.0}
 arm1_arm2_joint_controller:
   type: "effort_controllers/JointPositionController"
   joint: arm1_arm2_joint
-  pid: {p: 300.0, i: 10.0, d: 10.0}
+  pid: {p: 300.0, i: 30.0, d: 30.0}
 arm2_arm3_joint_controller:
   type: "effort_controllers/JointPositionController"
   joint: arm2_arm3_joint
-  pid: {p: 300.0, i: 10.0, d: 10.0}
+  pid: {p: 300.0, i: 30.0, d: 30.0}
 arm3_gripper1_joint_controller:
   type: "effort_controllers/JointPositionController"
   joint: arm3_gripper1_joint
