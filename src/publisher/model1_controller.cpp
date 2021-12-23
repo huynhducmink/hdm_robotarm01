@@ -14,7 +14,7 @@ int main(int argc, char **argv)
    * the easiest way to do it.  The third argument to init() is the name of the node.
    *
    * You must call one of the versions of ros::init() before using any other
-   * part of the ROS system.
+   * part of the ROS system..
    */
   ros::init(argc, argv, "model1_controller");
 
