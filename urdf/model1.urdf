@@ -9,6 +9,55 @@
       <robotNamespace>/</robotNamespace>
     </plugin>
   </gazebo>
+  <!-- stationary_base -->
+  <gazebo reference="stationary_base">
+    <gravity>true</gravity>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <!-- spin_base -->
+  <gazebo reference="spin_base">
+    <gravity>true</gravity>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <!-- arm1 -->
+  <gazebo reference="arm1">
+    <gravity>true</gravity>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <!-- arm2 -->
+  <gazebo reference="arm2">
+    <gravity>true</gravity>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <!-- arm3 -->
+  <gazebo reference="arm3">
+    <gravity>true</gravity>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <!-- gripper1 -->
+  <gazebo reference="gripper1">
+    <gravity>true</gravity>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <!-- gripper2 -->
+  <gazebo reference="gripper2">
+    <gravity>true</gravity>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <selfCollide>true</selfCollide>
+  </gazebo>
   <!-- fix model to world -->
   <link name="world"/>
   <joint name="fixed" type="fixed">
@@ -84,7 +133,6 @@
     <child link="spin_base"/>
     <origin xyz="0 0 0.06"/>
     <dynamics damping="10.0" friction="0.3"/>
-    <!-- very very important -->
   </joint>
   <transmission name="stationary_base_spin_base_trans">
     <type>
@@ -137,7 +185,6 @@
     <child link="arm1"/>
     <origin xyz="0 0 0.2"/>
     <dynamics damping="10.0" friction="0.3"/>
-    <!-- very very important -->
   </joint>
   <transmission name="spin_base_arm1_trans">
     <type>
@@ -190,7 +237,6 @@
     <child link="arm2"/>
     <origin xyz="0 0.05 1"/>
     <dynamics damping="10.0" friction="0.3"/>
-    <!-- very very important -->
   </joint>
   <transmission name="arm1_arm2_trans">
     <type>
@@ -243,7 +289,6 @@
     <child link="arm3"/>
     <origin xyz="0 0 1"/>
     <dynamics damping="10.0" friction="0.3"/>
-    <!-- very very important -->
   </joint>
   <transmission name="arm2_arm3_trans">
     <type>
@@ -296,7 +341,6 @@
     <child link="gripper1"/>
     <origin xyz="0 -0.05 0.5"/>
     <dynamics damping="10.0" friction="0.3"/>
-    <!-- very very important -->
   </joint>
   <transmission name="arm3_gripper1_trans">
     <type>
@@ -349,7 +393,6 @@
     <child link="gripper2"/>
     <origin xyz="0 -0.05 0.5"/>
     <dynamics damping="10.0" friction="0.3"/>
-    <!-- very very important -->
   </joint>
   <transmission name="arm3_gripper2_trans">
     <type>

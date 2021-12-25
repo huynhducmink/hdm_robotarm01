@@ -5,4 +5,60 @@
             <robotNamespace>/</robotNamespace>
         </plugin>
     </gazebo>
+
+    <!-- stationary_base -->
+    <gazebo reference="stationary_base">
+        <gravity>true</gravity>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <!-- spin_base -->
+    <gazebo reference="spin_base">
+        <gravity>true</gravity>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <!-- arm1 -->
+    <gazebo reference="arm1">
+        <gravity>true</gravity>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <!-- arm2 -->
+    <gazebo reference="arm2">
+        <gravity>true</gravity>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <!-- arm3 -->
+    <gazebo reference="arm3">
+        <gravity>true</gravity>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <!-- gripper1 -->
+    <gazebo reference="gripper1">
+        <gravity>true</gravity>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <!-- gripper2 -->
+    <gazebo reference="gripper2">
+        <gravity>true</gravity>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+    </gazebo>
 </robot>
