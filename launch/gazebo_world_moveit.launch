@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="world_name" default="world02.world"/>
+  <include file="$(find hdm_robotarm01)/launch/xml/world.xml">
+    <arg name="world_name" value="$(arg world_name)"/>
+  </include>
+
+  <include file="$(find hdm_robotarm01)/launch/xml/spawner.xml" />
+  <include file="$(find hdm_robotarm01)/launch/xml/robot_state_publisher.xml" />
+  <include file="$(find hdm_robotarm01)/launch/xml/controller_moveit.xml" />
+</launch>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <rosparam command="load" file="$(find hdm_robotarm01)/config/controller_moveit.yaml" />
+    
+    <node name="controller_spawner" pkg="controller_manager" type="spawner"
+        args="controller
+            arm_controller 
+            gripper_controller
+            --timeout 60"
+    />
+</launch>

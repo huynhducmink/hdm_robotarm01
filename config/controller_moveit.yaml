@@ -1,0 +1,44 @@
+controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 1
+
+arm_controller:
+    type: "effort_controllers/JointTrajectoryController"
+    joints:
+      - stationary_base_spin_base_joint
+      - spin_base_arm1_joint
+      - arm1_arm2_joint
+      - arm2_arm3_joint
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0.1
+      stationary_base_spin_base_joint: {trajectory: 0.2, goal: 0.1}
+      spin_base_arm1_joint: {trajectory: 0.2, goal: 0.1}
+      arm1_arm2_joint: {trajectory: 0.2, goal: 0.1}
+      arm2_arm3_joint: {trajectory: 0.2, goal: 0.1}
+    stop_trajectory_duration: 0.5
+    state_publish_rate: 25
+    action_monitor_rate: 10
+    gains:
+      stationary_base_spin_base_joint: {p: 500, i: 10, d: 10}
+      spin_base_arm1_joint: {p: 500, i: 10, d: 10}
+      arm1_arm2_joint: {p: 500, i: 10, d: 10}
+      arm2_arm3_joint: {p: 500, i: 10, d: 10}
+
+
+gripper_controller:
+    type: "effort_controllers/JointTrajectoryController"
+    joints:
+      - arm3_gripper1_joint
+      - arm3_gripper2_joint
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0.1
+      arm3_gripper1_joint: {trajectory: 0.2, goal: 0.1}
+      arm3_gripper2_joint: {trajectory: 0.2, goal: 0.1}
+    stop_trajectory_duration: 0.5
+    state_publish_rate: 25
+    action_monitor_rate: 10
+    gains:
+      arm3_gripper1_joint: {p: 50, i: 10, d: 10}
+      arm3_gripper2_joint: {p: 50, i: 10, d: 10}
